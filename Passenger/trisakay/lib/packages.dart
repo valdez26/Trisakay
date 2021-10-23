@@ -9,6 +9,9 @@ export 'package:trisakay/Customs/customtext.dart';
 export 'package:trisakay/Views/loginview.dart';
 export 'package:trisakay/Views/homeview.dart';
 export 'package:trisakay/Views/setting.dart';
+export 'package:trisakay/Views/historyview.dart';
+export 'package:trisakay/Views/aboutview.dart';
+export 'package:trisakay/Views/myaccountview.dart';
 
 //CONTROLLER
 export 'package:trisakay/allbindings.dart';

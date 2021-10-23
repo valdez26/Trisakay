@@ -34,7 +34,9 @@ class SettingView extends StatelessWidget {
                           children: [
                             const Icon(Icons.person, color: Colors.black38),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.toNamed('/myaccount');
+                                },
                                 child: Customtext.text(
                                     title: "My Account",
                                     size: 16,
@@ -51,7 +53,9 @@ class SettingView extends StatelessWidget {
                           children: [
                             const Icon(Icons.person, color: Colors.black38),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.toNamed('/history');
+                                },
                                 child: Customtext.text(
                                     title: "History",
                                     size: 16,
@@ -69,7 +73,9 @@ class SettingView extends StatelessWidget {
                             const Icon(Icons.read_more_rounded,
                                 color: Colors.black38),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.toNamed('/aboutus');
+                                },
                                 child: Customtext.text(
                                     title: "About",
                                     size: 16,

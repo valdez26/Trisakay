@@ -9,7 +9,10 @@ export 'package:trisakaydriver/Custom/customtext.dart';
 export 'package:trisakaydriver/Views/loginview.dart';
 export 'package:trisakaydriver/Views/homeview.dart';
 export 'package:trisakaydriver/Views/setting.dart';
-export 'package:trisakaydriver/Views/waitlist.dart';
+export 'package:trisakaydriver/Views/waitlistview.dart';
+export 'package:trisakaydriver/Views/historyview.dart';
+export 'package:trisakaydriver/Views/aboutview.dart';
+export 'package:trisakaydriver/Views/myaccountview.dart';
 
 //CONTROLLER
 export 'package:trisakaydriver/allbindings.dart';

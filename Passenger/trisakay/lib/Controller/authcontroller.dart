@@ -1,9 +1,7 @@
 import 'package:trisakay/packages.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
   //Get Instance of Authentication
-  final FirebaseAuth _user = FirebaseAuth.instance;
   UserModel? user;
 
   //Controllers for Login & Singup
@@ -17,7 +15,7 @@ class AuthController extends GetxController {
   RxBool passwordPrefixStatus = true.obs;
   RxBool confirmpassPrefixStatus = true.obs;
 
-  User? get users => _user.currentUser;
+  String get users => user!.name!;
 
   void loginUser() {
     try {

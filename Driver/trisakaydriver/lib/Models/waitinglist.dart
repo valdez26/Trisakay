@@ -23,8 +23,10 @@ class WaitingList {
       QueryDocumentSnapshot queryDocumentSnapshot) {
     try {
       uid = queryDocumentSnapshot.get('uid');
-      pickupLocation = queryDocumentSnapshot.get('pickupLocation');
-      destinationLocation = queryDocumentSnapshot.get('destinationLocation');
+      GeoPoint point = queryDocumentSnapshot.get('pickupLocation');
+      pickupLocation = LatLng(point.latitude, point.longitude);
+      point = queryDocumentSnapshot.get('destinationLocation');
+      destinationLocation = LatLng(point.latitude, point.longitude);
     } catch (e) {
       print(e.toString());
     }

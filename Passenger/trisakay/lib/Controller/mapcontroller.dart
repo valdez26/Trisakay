@@ -35,6 +35,7 @@ class MapController extends GetxController {
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
         position: pos,
       );
+      refresh();
     } else {
       waitingList.pickupLocation = pos;
       origin = Marker(
@@ -43,6 +44,7 @@ class MapController extends GetxController {
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
         position: pos,
       );
+      refresh();
     }
     if (destination != null) {
       final directions = await DirectionsRepository().getDirections(
@@ -91,5 +93,12 @@ class MapController extends GetxController {
   void addInWaitingList() {
     waitingList.uidAdd = auth.currentUser!.uid;
     Firedatabase().addWaitingList();
+  }
+
+  void removeMarker() {
+    origin = null;
+    destination = null;
+    info = null;
+    refresh();
   }
 }

@@ -1,9 +1,8 @@
 import 'package:trisakaydriver/packages.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
   //Get Instance of Authentication
-  final FirebaseAuth _user = FirebaseAuth.instance;
+  // final FirebaseAuth _user = FirebaseAuth.instance;
   UserModel? user;
 
   //Controllers for Login & Singup
