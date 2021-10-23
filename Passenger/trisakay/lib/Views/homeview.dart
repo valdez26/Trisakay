@@ -14,14 +14,28 @@ class HomeView extends GetView<MapController> {
           elevation: 0,
           toolbarHeight: 0,
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            controller.addInWaitingList();
-          },
-          child: const Icon(
-            Icons.search,
-            size: 34,
-          ),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+                onPressed: () {
+                  controller.removeMarker();
+                },
+                child: const Icon(
+                  Icons.clear,
+                  size: 34,
+                )),
+            const SizedBox(height: 20),
+            FloatingActionButton(
+              onPressed: () {
+                controller.addInWaitingList();
+              },
+              child: const Icon(
+                Icons.search,
+                size: 34,
+              ),
+            ),
+          ],
         ),
         body: Stack(
           children: [
@@ -35,7 +49,7 @@ class HomeView extends GetView<MapController> {
                     if (controller.origin != null) controller.origin!,
                     if (controller.destination != null) controller.destination!
                   },
-                  // onLongPress: controller.addMarker,
+                  onLongPress: controller.addMarker,
                   polylines: {
                     if (controller.info != null)
                       Polyline(
@@ -119,8 +133,7 @@ class HomeView extends GetView<MapController> {
                                 GetBuilder<AuthController>(
                                     builder: (controller) {
                                   return Customtext.text(
-                                      title: controller.user!.name ?? "unknown",
-                                      size: 16);
+                                      title: controller.user!.name!, size: 16);
                                 }),
                                 GetBuilder<MapController>(
                                     builder: (controller) {

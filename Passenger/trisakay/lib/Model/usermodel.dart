@@ -7,6 +7,7 @@ class UserModel {
 
   UserModel();
 
+  UserModel.getData({this.name, this.email});
   UserModel.getDocumentSnapshot(DocumentSnapshot documentSnapshot) {
     email = documentSnapshot.get('email');
     name = documentSnapshot.get('name');

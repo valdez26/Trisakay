@@ -20,7 +20,7 @@ class MyApp extends GetView<AuthController> {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: controller.users == null ? Loginview() : HomeView(),
+      home: Loginview(),
       initialBinding: Allbindings(),
       initialRoute: '/',
       getPages: [
@@ -28,6 +28,9 @@ class MyApp extends GetView<AuthController> {
         GetPage(name: '/home', page: () => HomeView()),
         GetPage(name: '/setting', page: () => SettingView()),
         GetPage(name: '/list', page: () => WaitlistView()),
+        GetPage(name: '/history', page: () => HistoryView()),
+        GetPage(name: '/aboutus', page: () => AboutView()),
+        GetPage(name: '/myaccount', page: () => MyAccountView()),
       ],
     );
   }

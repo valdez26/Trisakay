@@ -24,6 +24,19 @@ class Firedatabase {
     }
   }
 
+  Future<void> getUserData() async {
+    try {
+      await _firestore
+          .collection('passenger')
+          .doc(_auth.currentUser!.uid)
+          .get()
+          .then((value) =>
+              {_controller.user = UserModel.getDocumentSnapshot(value)});
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   Future<void> signup() async {
     try {
       await _auth.createUserWithEmailAndPassword(
@@ -33,9 +46,8 @@ class Firedatabase {
         "email": _auth.currentUser!.email,
         "name": _controller.name.text,
       }).then((documentReference) async {
-        _controller.user = UserModel();
-        _controller.user!.email = _auth.currentUser!.email;
-        _controller.user!.name = _controller.name.text;
+        _controller.user = UserModel.getData(
+            email: _auth.currentUser!.email, name: _controller.name.text);
         Get.offAndToNamed('/home');
       });
     } catch (e) {

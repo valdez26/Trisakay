@@ -24,6 +24,19 @@ class Firedatabase {
     }
   }
 
+  Future<void> getUserData() async {
+    try {
+      await _firestore
+          .collection('driver')
+          .doc(_auth.currentUser!.uid)
+          .get()
+          .then((value) =>
+              {_controller.user = UserModel.getDocumentSnapshot(value)});
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   Future<void> signup() async {
     try {
       await _auth.createUserWithEmailAndPassword(
@@ -56,14 +69,19 @@ class Firedatabase {
   }
 
   Stream<List<WaitingList>> waitListStream() {
+    List<WaitingList> retVal = [];
     return _firestore
-        .collection("waitinglist")
+        .collection("pickup")
         .snapshots()
         .map((QuerySnapshot query) {
-      List<WaitingList> retVal = [];
-      query.docs.map((queryDocumentSnapshot) {
-        retVal.add(WaitingList.getQueryDocumentSnapshot(queryDocumentSnapshot));
-      });
+      try {
+        query.docs.forEach((queryDocumentSnapshot) {
+          retVal
+              .add(WaitingList.getQueryDocumentSnapshot(queryDocumentSnapshot));
+        });
+      } catch (e) {
+        print(e.toString());
+      }
       return retVal;
     });
   }

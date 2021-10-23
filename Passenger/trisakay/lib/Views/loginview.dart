@@ -139,8 +139,11 @@ class Loginview extends GetView<AuthController> {
                             if (_key.currentState!.validate()) {
                               if (controller.loginPageStatus.isFalse) {
                                 controller.signin();
+                                controller.loginPageStatus.value = false;
+                                controller.clear();
                               } else {
                                 controller.loginUser();
+                                controller.clear();
                               }
                             }
                           },

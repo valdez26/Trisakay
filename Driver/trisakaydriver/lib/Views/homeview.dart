@@ -36,7 +36,6 @@ class HomeView extends GetView<MapController> {
                     if (controller.origin != null) controller.origin!,
                     if (controller.destination != null) controller.destination!
                   },
-                  onLongPress: controller.addMarker,
                   polylines: {
                     if (controller.info != null)
                       Polyline(

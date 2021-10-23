@@ -20,7 +20,9 @@ class MapController extends GetxController {
   PermissionStatus? permissionGranted;
   LocationData? locationData;
   Rxn<List<WaitingList>> waitlist = Rxn<List<WaitingList>>();
-  List<WaitingList> get waitlistrecord => waitlist.value!;
+  RxBool progressCircularStatus = true.obs;
+
+  List<WaitingList>? get waitlistrecord => waitlist.value;
 
   // MapController() {
   //   getCurrentLocation();
@@ -32,24 +34,29 @@ class MapController extends GetxController {
       bearing: CAMERA_BEARING,
       target: SOURCE_LOCATION);
 
-  void addMarker(LatLng pos) async {
-    if (origin == null || (origin != null && destination != null)) {
-      waitingList.pickupLocation = pos;
-      origin = Marker(
-        markerId: const MarkerId('pickup'),
-        infoWindow: const InfoWindow(title: 'Pickup location'),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-        position: pos,
-      );
-    } else {
-      waitingList.destinationLocation = pos;
-      destination = Marker(
-        markerId: const MarkerId('destination'),
-        infoWindow: const InfoWindow(title: 'Destination'),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-        position: pos,
-      );
+  void addMarker(WaitingList waitingList) async {
+    LatLng _destination = waitingList.destinationlocation;
+    LatLng _pickup = waitingList.pickuplocation;
+    if (origin != null) {
+      origin = null;
     }
+    if (destination != null) {
+      destination = null;
+    }
+    origin = Marker(
+      markerId: const MarkerId('pickup'),
+      infoWindow: const InfoWindow(title: 'Pickup location'),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      position: _pickup,
+    );
+
+    destination = Marker(
+      markerId: const MarkerId('destination'),
+      infoWindow: const InfoWindow(title: 'Destination'),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      position: _destination,
+    );
+
     if (destination != null) {
       final directions = await DirectionsRepository().getDirections(
           origin: origin!.position, destination: destination!.position);
