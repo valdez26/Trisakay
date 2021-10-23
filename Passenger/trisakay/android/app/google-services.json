@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "493367178376",
+    "project_id": "trisakay-68a7f",
+    "storage_bucket": "trisakay-68a7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493367178376:android:54b6121795343fad1e1b3d",
+        "android_client_info": {
+          "package_name": "com.example.trisakay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493367178376-uepp7es3a6r4633hjrirantnmuttd54t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB91XZ449MKhgO9pfc0SaQ0YmqvLXNpDVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493367178376-uepp7es3a6r4633hjrirantnmuttd54t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493367178376:android:047ea23daeb1426b1e1b3d",
+        "android_client_info": {
+          "package_name": "com.example.trisakay_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493367178376-uepp7es3a6r4633hjrirantnmuttd54t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB91XZ449MKhgO9pfc0SaQ0YmqvLXNpDVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493367178376-uepp7es3a6r4633hjrirantnmuttd54t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
